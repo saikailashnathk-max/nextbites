@@ -1,5 +1,11 @@
 import Link from "next/link";
-import { getRecipe } from "../../data/recipes";
+import { getRecipe, recipes } from "../../data/recipes";
+
+export function generateStaticParams() {
+  return recipes.map((recipe) => ({
+    id: recipe.id,
+  }));
+}
 
 export default async function RecipeDetailPage({
   params,
